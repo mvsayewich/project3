@@ -6,7 +6,7 @@ d3.json("/api/justice-league").then(function(data) {
 
 // Create a map object
 var myMap = L.map("map", {
-  center: [37.09, -95.71],
+  center: [56.13, -106.35],
   zoom: 5
 });
 
