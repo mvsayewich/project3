@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<title>CANADIAN REAL ESTATE REPORT</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body id="myPage">
+
+<!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+    <i class="fa fa-remove"></i>
+  </a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+  <a href="#" class="w3-bar-item w3-button">Link 5</a>
+</nav>
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
+  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
+  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
+ </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#team" class="w3-bar-item w3-button">Team</a>
+    <a href="#work" class="w3-bar-item w3-button">Work</a>
+    <a href="#pricing" class="w3-bar-item w3-button">Price</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    <a href="#" class="w3-bar-item w3-button">Search</a>
+  </div>
+</div>
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img src="/images/Mountain1.jpg" alt="Mountains" style="width:100%;min-height:350px;max-height:600px;">
+  <div class="w3-container w3-display-bottomleft w3-margin-bottom">  
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Go To W3.CSS">RESOURCES</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top">
+    <header class="w3-container w3-teal w3-display-container"> 
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
+      <h4>Big thank you to our sponsors!</h4>
+      <h5>They gave us access to data <i class="fa fa-smile-o"></i></h5>
+    </header>
+    <div class="w3-container">
+      <p>The Canadian Real Estate Association</p>
+      <p>Go to their <a class="w3-text-teal" href="https://www.crea.ca/housing-market-stats/mls-home-price-index/hpi-tool/">HPI Tool</a> to learn more!</p>
+      <p>Zillow</p>
+      <p>Use their <a class="w3-text-teal" href="https://www.zillow.com/howto/api/APIOverview.htm">API Tool</a> because it is amazing!</p>
+    </div>
+    <footer class="w3-container w3-teal">
+      <p>Note: This website was created for a school project, no profit will be made!</p>
+    </footer>
+  </div>
+</div>
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>PROJECT TEAM</h2>
+<p>Meet the Group 2 Project Team</p>
+
+<div class="w3-row"><br>
+
+<div class="w3-quarter">
+  <img src="/images/avatar.jpg" alt="Purnima Chandel" style="width:30%" class="w3-circle w3-hover-opacity">
+  <h3>Purnima Chandel</h3>
+  <p>Data Parser</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="/images/avatar.jpg" alt="Joao Pinto" style="width:30%" class="w3-circle w3-hover-opacity">
+  <h3>Joao Pinto</h3>
+  <p>Visualization Master</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="/images/MSayewich.jpg" alt="Mariaveronica Sayewich" style="width:30%" class="w3-circle w3-hover-opacity">
+  <h3>Mariaveronica Sayewich</h3>
+  <p>Web Designer</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="/images/avatar.jpg" alt="Wenjie Shao" style="width:30%" class="w3-circle w3-hover-opacity">
+  <h3>Wenjie Shao</h3>
+  <p>Research Scientist</p>
+</div>
+
+<div class="w3-quarter">
+    <img src="/images/avatar.jpg" alt="Tigran Zohrabyan" style="width:30%" class="w3-circle w3-hover-opacity">
+    <h3>Tigran Zohrabyan</h3>
+    <p>API Guru</p>
+ </div>
+</div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+<div class="w3-quarter">
+<h2>Our Work</h2>
+<p>We all know that the Toronto market is hot right now. Prices are on the rise, and residences are being built on any available property. BUT – how do we know where the next city center is being built. Is it even in Ontario? This is what our group will discover. </p>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="/w3images/snow.jpg" alt="HPI Visualization" style="width:100%">
+  <div class="w3-container">
+  <h3>Visualization 1</h3>
+  <h4>HPI Charts</h4>
+  <p>HPI by Year</p>
+  <p>Home Rates per Province</p>
+  <p>Condo Rates per Province</p>
+  <p>Apartment Rates per Province</p>
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="/w3images/lights.jpg" alt="Ontario Map Visualization" style="width:100%">
+  <div class="w3-container">
+  <h3>Visualization 2</h3>
+  <h4>Ontario Choropleth</h4>
+  <p>Property density by region</p>
+  <p>Blablabla</p>
+  <p>Blablabla</p>
+  <p>Blablabla</p>
+  </div>
+  </div>
+</div>
+
+<div class="w3-quarter">
+<div class="w3-card w3-white">
+  <img src="/w3images/mountains.jpg" alt="Property Sprawl Visualization" style="width:100%">
+  <div class="w3-container">
+  <h3>Visualization 3</h3>
+  <h4>Property Sprawl</h4>
+  <p>Property opportunities in Ontario</p>
+  <p>Blablabla</p>
+  <p>Blablabla</p>
+  <p>Blablabla</p>
+  </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Container -->
+<div class="w3-container" style="position:relative">
+  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
+  style="position:absolute;top:-28px;right:24px">+</a>
+</div>
+
+<!-- Deleted Pricing -->
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
+    <h2>Visualizations????</h2>
+    <p>Maybe this is where we have a preview of the Visualizations????</p><br>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Visualization 1</p>
+        </li>
+        
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Learn More</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme-l2">
+          <p class="w3-xlarge">Visualization 2</p>
+        </li>
+       
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Learn More</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Visualization 3</p>
+        </li>
+        
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Learn More</button>
+        </li>
+      </ul>
+    </div>
+</div>
+
+<!-- Deleted Contact Container -->
+
+<!-- Image of location/map -->
+<img src="/images/MountainPano.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <h4>Thank you for your time!</h4>
+  <p>Template Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+
+  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
+    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
