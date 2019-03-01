@@ -9,7 +9,7 @@
 <body id="myPage">
 
 <!-- Sidebar on click -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+<!-- <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
     <i class="fa fa-remove"></i>
   </a>
@@ -18,37 +18,33 @@
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
   <a href="#" class="w3-bar-item w3-button">Link 4</a>
   <a href="#" class="w3-bar-item w3-button">Link 5</a>
-</nav>
+</nav>-->
 
 <!-- Navbar -->
 <div class="w3-top">
- <div class="w3-bar w3-theme-d2 w3-left-align">
-  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
-  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
-  <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Work</a>
-  <a href="#pricing" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Price</a>
-  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-    <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
-    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
-      <a href="hpidata.html" class="w3-bar-item w3-button">HPI Data</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-      <a href="#" class="w3-bar-item w3-button">Link</a>
-    </div>
-  </div>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>
- </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-    <a href="#team" class="w3-bar-item w3-button">Team</a>
-    <a href="#work" class="w3-bar-item w3-button">Work</a>
-    <a href="#pricing" class="w3-bar-item w3-button">Price</a>
-    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    <a href="#" class="w3-bar-item w3-button">Search</a>
-  </div>
-</div>
+    <div class="w3-bar w3-theme-d2 w3-left-align">
+     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+     <a href="main.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+     <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Project Team</a>
+     <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Our Work</a>
+     <a href="#visuals" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Visualizations</a>
+       <div class="w3-dropdown-hover w3-hide-small">
+       <button class="w3-button" title="Notifications">Analysis Dropdown <i class="fa fa-caret-down"></i></button>     
+       <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+         <a href="hpidata.html" class="w3-bar-item w3-button">Housing Price Index</a>
+         <a href="geodata.html" class="w3-bar-item w3-button">Geographical Data</a>
+         <a href="ontdata.html" class="w3-bar-item w3-button">Ontario Dwellings</a>
+       </div>
+     </div>
+   
+     <!-- Navbar on small screens -->
+     <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+        <a href="main.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Project Team</a>
+        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Our Work</a>
+        <a href="#visuals" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Visualizations</a>
+     </div>
+   </div>
 
 <!-- Image Header -->
 <div class="w3-display-container w3-animate-opacity">
@@ -63,17 +59,15 @@
   <div class="w3-modal-content w3-card-4 w3-animate-top">
     <header class="w3-container w3-teal w3-display-container"> 
       <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
-      <h4>Big thank you to our sponsors!</h4>
-      <h5>They gave us access to data <i class="fa fa-smile-o"></i></h5>
+      <h4>Big thank you to our data sponsors!</h4>
+      <h5>This data was used for our school project<i class="fa fa-smile-o"></i></h5>
     </header>
     <div class="w3-container">
       <p>The Canadian Real Estate Association</p>
       <p>Go to their <a class="w3-text-teal" href="https://www.crea.ca/housing-market-stats/mls-home-price-index/hpi-tool/">HPI Tool</a> to learn more!</p>
-      <p>Zillow</p>
-      <p>Use their <a class="w3-text-teal" href="https://www.zillow.com/howto/api/APIOverview.htm">API Tool</a> because it is amazing!</p>
     </div>
     <footer class="w3-container w3-teal">
-      <p>Note: This website was created for a school project, no profit will be made!</p>
+      <p>Note: We only gained knowledge, not money</p>
     </footer>
   </div>
 </div>
@@ -176,6 +170,8 @@
 </div>
 
 <!-- Deleted Pricing -->
+
+<!-- Visualizations -->
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
     <h2>Visualizations????</h2>
     <p>Maybe this is where we have a preview of the Visualizations????</p><br>
