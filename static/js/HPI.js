@@ -3,7 +3,7 @@
 const ENABLED_OPACITY = 1;
 const DISABLED_OPACITY = .2;
 
-d3.csv('https://github.com/mvsayewich/project3/blob/master/datasets/mergeddataset.csv')
+d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset.csv')
   .then(data => draw(data));
 
 function draw(data) {
