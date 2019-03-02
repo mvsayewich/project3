@@ -50,7 +50,8 @@ function draw(data) {
       '#fcbfd2',
       '#b279a2',
       '#9e765f',
-      '#d8b5a5'
+      '#d8b5a5',
+      '#722F37'
     ]);
 
   const chartAreaWidth = width + margin.left + margin.right;
@@ -130,7 +131,6 @@ function draw(data) {
 
   const nestByRegionId = d3.nest()
     .key(d => d.regionId)
-    .sortKeys((v1, v2) => (parseInt(v1, 10) > parseInt(v2, 10) ? 1 : -1))
     .entries(data);
 
   const regionsNamesById = {};
@@ -180,9 +180,9 @@ function draw(data) {
     .attr('x', 0)
     .attr('y', 10)
     .style('font-size', 12);
-    
+
   const legends = legendsSvg.attr('width', 210)
-    .attr('height', 353)
+    .attr('height', 393)
     .selectAll('g')
     .data(regionsIds)
     .enter()
@@ -201,8 +201,8 @@ function draw(data) {
   legends.append('rect')
     .attr('x', 58)
     .attr('y', 0)
-    .attr('width', 12)
-    .attr('height', 12)
+    .attr('width', 10)
+    .attr('height', 10)
     .style('fill', regionId => colorScale(regionId))
     .select(function() { return this.parentNode; })
     .append('text')
@@ -356,7 +356,7 @@ function draw(data) {
         .attr('class', 'line')
         .attr('d', regionId => previewLineGenerator(regions[regionId].data)
         )
-        .style('fill', regionId => colorScale(regionId));
+        .style('stroke', regionId => colorScale(regionId));
     }
 
     paths
