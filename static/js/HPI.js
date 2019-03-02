@@ -97,13 +97,13 @@ function draw(data) {
   const yAxisPreview = d3.axisLeft(previewY)
     .tickValues(previewY.domain())
     .tickSize(3)
-    .tickFormat(d => Math.round(d) + '%');
+    .tickFormat(d => Math.round(d));
 
   const yAxis = d3.axisRight(y)
     .ticks(5)
     .tickSize(7 + width)
     .tickPadding(-11 - width)
-    .tickFormat(d => d + '%');
+    .tickFormat(d => d);
 
   const xAxisElement = svg.append('g')
     .attr('class', 'axis x-axis')
@@ -160,13 +160,13 @@ function draw(data) {
     .key(d => d.Date)
     .entries(data);
 
-  const percentsByDate = {};
+  const pricesByDate = {};
 
   nestByDate.forEach(dateItem => {
-    percentsByDate[dateItem.key] = {};
+    pricesByDate[dateItem.key] = {};
 
     dateItem.values.forEach(item => {
-      percentsByDate[dateItem.key][item.regionId] = item.Composite_Benchmark;
+      pricesByDate[dateItem.key][item.regionId] = item.Composite_Benchmark;
     });
   });
 
@@ -352,7 +352,7 @@ function draw(data) {
         .attr('class', 'line')
         .attr('d', regionId => previewLineGenerator(regions[regionId].data)
         )
-        .style('stroke', regionId => colorScale(regionId));
+        .style('fill', regionId => colorScale(regionId));
     }
 
     paths
@@ -363,7 +363,8 @@ function draw(data) {
       .attr('id', regionId => `region-${ regionId }`)
       .attr('d', regionId => lineGenerator(regions[regionId].data)
       )
-      .style('stroke', regionId => colorScale(regionId));
+      .style('fill', none);
+//      .style('fill', regionId => colorScale(regionId));
 
     legends.each(function(regionId) {
       const opacityValue = enabledRegionsIds.indexOf(regionId) >= 0 ? ENABLED_OPACITY : DISABLED_OPACITY;
@@ -410,9 +411,9 @@ function draw(data) {
     legendsDate.text(timeFormatter(d.data.Date));
 
     legendsValues.text(dataItem => {
-      const value = percentsByDate[d.data.Date][dataItem];
+      const value = pricesByDate[d.data.Date][dataItem];
 
-      return value ? value + '%' : 'Н/Д';
+      return value ? value : 'H/A';
     });
 
     d3.select(`#region-${ d.data.regionId }`).classed('region-hover', true);
@@ -430,7 +431,7 @@ function draw(data) {
       .attr('class', 'line')
       .attr('d', regionId => previewLineGenerator(regions[regionId].data)
       )
-      .style('stroke', regionId => colorScale(regionId));
+      .style('fill', regionId => colorScale(regionId));
 
     hoverDot
       .attr('cx', () => transform.applyX(x(d.data.Date)))
