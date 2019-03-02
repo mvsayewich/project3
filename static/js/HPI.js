@@ -363,8 +363,7 @@ function draw(data) {
       .attr('id', regionId => `region-${ regionId }`)
       .attr('d', regionId => lineGenerator(regions[regionId].data)
       )
-      .style('fill', none);
-//      .style('fill', regionId => colorScale(regionId));
+      .style('fill', regionId => colorScale(regionId));
 
     legends.each(function(regionId) {
       const opacityValue = enabledRegionsIds.indexOf(regionId) >= 0 ? ENABLED_OPACITY : DISABLED_OPACITY;
