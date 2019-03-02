@@ -50,7 +50,8 @@ function draw(data) {
       '#fcbfd2',
       '#b279a2',
       '#9e765f',
-      '#d8b5a5'
+      '#d8b5a5',
+      '#722F37'
     ]);
 
   const chartAreaWidth = width + margin.left + margin.right;
@@ -130,13 +131,12 @@ function draw(data) {
 
   const nestByRegionId = d3.nest()
     .key(d => d.regionId)
-    .sortKeys((v1, v2) => (parseInt(v1, 10) > parseInt(v2, 10) ? 1 : -1))
     .entries(data);
 
   const regionsNamesById = {};
 
   nestByRegionId.forEach(item => {
-    regionsNamesById[item.key] = item.values[0].regionName;
+    regionsNamesById[item.key] = item.values[0].regionId;
   });
 
   const regions = {};
@@ -178,10 +178,11 @@ function draw(data) {
   const legendsDate = legendsSvg.append('text')
     .attr('visibility', 'hidden')
     .attr('x', 0)
-    .attr('y', 10);
+    .attr('y', 10)
+    .style('font-size', 12);
 
   const legends = legendsSvg.attr('width', 210)
-    .attr('height', 353)
+    .attr('height', 393)
     .selectAll('g')
     .data(regionsIds)
     .enter()
@@ -194,21 +195,24 @@ function draw(data) {
     .append('text')
     .attr('x', 0)
     .attr('y', 10)
+    .style('font-size', 12)
     .attr('class', 'legend-value');
 
   legends.append('rect')
     .attr('x', 58)
     .attr('y', 0)
-    .attr('width', 12)
-    .attr('height', 12)
+    .attr('width', 10)
+    .attr('height', 10)
     .style('fill', regionId => colorScale(regionId))
     .select(function() { return this.parentNode; })
     .append('text')
     .attr('x', 78)
     .attr('y', 10)
     .text(regionId => regionsNamesById[regionId])
-    .attr('class', 'legend-text')
-    .style('text-anchor', 'start');
+    .attr('class', 'legend')
+    .style('text-anchor', 'start')
+    .style('font-size', 12);
+
 
   const extraOptionsContainer = legendContainer.append('div')
     .attr('class', 'extra-options-container');
@@ -352,7 +356,7 @@ function draw(data) {
         .attr('class', 'line')
         .attr('d', regionId => previewLineGenerator(regions[regionId].data)
         )
-        .style('fill', regionId => colorScale(regionId));
+        .style('stroke', regionId => colorScale(regionId));
     }
 
     paths
@@ -363,7 +367,7 @@ function draw(data) {
       .attr('id', regionId => `region-${ regionId }`)
       .attr('d', regionId => lineGenerator(regions[regionId].data)
       )
-      .style('fill', regionId => colorScale(regionId));
+      .style('stroke', regionId => colorScale(regionId));
 
     legends.each(function(regionId) {
       const opacityValue = enabledRegionsIds.indexOf(regionId) >= 0 ? ENABLED_OPACITY : DISABLED_OPACITY;
@@ -410,9 +414,9 @@ function draw(data) {
     legendsDate.text(timeFormatter(d.data.Date));
 
     legendsValues.text(dataItem => {
-      const value = pricesByDate[d.data.Date][dataItem];
+      const value = pricesByDate[d.data.Date][dataItem].toLocaleString(undefined, {maximumFractionDigits:0});
 
-      return value ? value : 'H/A';
+      return value ? value : 'N/A';
     });
 
     d3.select(`#region-${ d.data.regionId }`).classed('region-hover', true);
@@ -430,7 +434,7 @@ function draw(data) {
       .attr('class', 'line')
       .attr('d', regionId => previewLineGenerator(regions[regionId].data)
       )
-      .style('fill', regionId => colorScale(regionId));
+      .style('stroke', regionId => colorScale(regionId));
 
     hoverDot
       .attr('cx', () => transform.applyX(x(d.data.Date)))
