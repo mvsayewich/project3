@@ -64,26 +64,31 @@ crossorigin="anonymous"></script>
 </div>
 
     <!-- Page Content -->
-            <div class="container">
-<!--              <div class="row">
+            <div class="w3-container w3-padding-100 w3-center">
+                <div class="row">
                 <div class="col-xs-12 col-md-12">
-                  <h1>HPI Data</h1>
-                  <h2>Subtitle - must Fill</h2>
+                  <h1>Housing Price Index Data</h1>
+                  <h2>From the Canadian Real Estate Association</h2>
+                  <div class="row"><br></br>
+                  </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12  col-md-9">-->
-              <div class="header">
-                <h2 class="title">
-                  <select id="inds">
-                    <option value="Composite_Benchmark" selected="selected">Composite Benchmark</option>
-                    <option value="Single_Family_Benchmark">Single Family Benchmark</option>
-                    <option value="One_Storey_Benchmark">One Storey Benchmark</option>
-                    <option value="Two_Storey_Benchmark">Two Storey Benchmark</option>
-                    <option value="Townhouse_Benchmark">Townhouse Benchmark</option>
-                    <option value="Apartment_Benchmark">Apartment Benchmark</option>
-                </select>
-                </h2>
+              <div class="w3-center">
+                      <select id="inds">
+                          <option value="Composite_Benchmark" selected="selected">Composite Benchmark</option>
+                          <option value="Single_Family_Benchmark">Single Family Benchmark</option>
+                          <option value="One_Storey_Benchmark">One Storey Benchmark</option>
+                          <option value="Two_Storey_Benchmark">Two Storey Benchmark</option>
+                          <option value="Townhouse_Benchmark">Townhouse Benchmark</option>
+                          <option value="Apartment_Benchmark">Apartment Benchmark</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <!--<div class="w3-container w3-right">
+                <div class="title">
+                </div>
+                </div>
                   <div class="preview"></div>
               </div>
               <div class="actions">
@@ -96,22 +101,36 @@ crossorigin="anonymous"></script>
                 <div class="chart"></div>
                 <div class="legend"></div>
               </div>
+          </div>-->
+          <div class="w3-container w3-center">
+              <div class="title"></div>
+                <div class="preview"></div>
+            <div class="actions"></div>
+            <div class="row"><br></br>
+              <label class="w3-left" id="form" for="show-voronoi">Show Voronoi diagram
+                <input type="checkbox" id="show-voronoi" disabled>
+              </label>
+              <div class="row"><br></br>
+              <button class="reset-zoom-button w3-left">Reset zoom</button>
+                </div>
+            <div class="w3-container w3-center">
+            <div class="root"></div>
+              <div class="chart"></div>
+              <div class="legend"></div>
             </div>
-            <!--  </div>
-              <div class="row">
-                <div class="col-xs-12  col-md-9">
-                  <div class="article">
-                    <br>
-                    <h2>Analysis of Data</h2>
-                    <p><br>Line 1<br></p>
-          
-                    <p><br>Line 2<br></p>
-          
-                    <p><br>Line 3<br></p>
-                  </div>
+        </div>
+      
+            <div class="w3-container w3-center">
+                <div class="article">
+                  <br>
+                  <h2>Describe the chart</h2>
+                  <p><br>Line 1<br></p>
+        
+                  <p><br>Line 2<br></p>
+        
+                  <p><br>Line 3<br></p>
                 </div>
               </div>
-            </div>          -->
 
 <!-- Image of location/map -->
 <img src="/images/MountainPano.jpg" alt='MountainPano' class="w3-image w3-greyscale-min" style="width:100%;">
