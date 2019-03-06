@@ -1,11 +1,25 @@
-d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset2.csv').then(data => draw(data))
+
+var sect = document.getElementById("inds");
+var section = sect.options[sect.selectedIndex].value;
+d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset2.csv').then(data => draw(data, section))
+
+d3.select('#inds')
+.on("change", function () {
+  d3.select('.legend').selectAll('div').remove();
+  d3.selectAll("svg").remove();
+  var sect = document.getElementById("inds");
+  var section = sect.options[sect.selectedIndex].value;
+  d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset2.csv').then(data => draw(data, section))
+})
 
 const ENABLED_OPACITY = 1;
 const DISABLED_OPACITY = .2;
 
 const timeFormatter = d3.timeFormat('%Y-%m-%d');
 
-function draw(data) {
+
+
+function draw(data, section) {
   const margin = { top: 20, right: 20, bottom: 250, left: 50 };
   const previewMargin = { top: 10, right: 10, bottom: 15, left: 30 };
   const width = 750 - margin.left - margin.right;
@@ -76,13 +90,13 @@ function draw(data) {
 
   data.forEach(function (d) {
     d.Date = new Date(d.Date);
-    d.Composite_Benchmark = +d.Composite_Benchmark;
+    d[section] = +d[section];
   });
 
   x.domain(d3.extent(data, d => d.Date));
-  y.domain([0, d3.max(data, d => d.Composite_Benchmark)]);
+  y.domain([0, d3.max(data, d => d[section])]);
   previewX.domain(d3.extent(data, d => d.Date));
-  previewY.domain([0, d3.max(data, d => d.Composite_Benchmark)]);
+  previewY.domain([0, d3.max(data, d => d[section])]);
   colorScale.domain(d3.map(data, d => d.regionId).keys());
 
   const xAxis = d3.axisBottom(x)
@@ -154,7 +168,7 @@ function draw(data) {
 
   const lineGenerator = d3.line()
     .x(d => rescaledX(d.Date))
-    .y(d => rescaledY(d.Composite_Benchmark));
+    .y(d => rescaledY(d[section]));
 
   const nestByDate = d3.nest()
     .key(d => d.Date)
@@ -166,7 +180,7 @@ function draw(data) {
     pricesByDate[dateItem.key] = {};
 
     dateItem.values.forEach(item => {
-      pricesByDate[dateItem.key][item.regionId] = item.Composite_Benchmark;
+      pricesByDate[dateItem.key][item.regionId] = item[section];
     });
   });
 
@@ -250,7 +264,7 @@ function draw(data) {
 
   const voronoi = d3.voronoi()
     .x(d => x(d.Date))
-    .y(d => y(d.Composite_Benchmark))
+    .y(d => y(d[section]))
     .extent([[0, 0], [width, height]]);
 
   const hoverDot = svg.append('circle')
@@ -319,7 +333,7 @@ function draw(data) {
 
   const previewLineGenerator = d3.line()
     .x(d => previewX(d.Date))
-    .y(d => previewY(d.Composite_Benchmark));
+    .y(d => previewY(d[section]));
 
   const draggedNode = previewContainer
     .append('rect')
@@ -438,7 +452,7 @@ function draw(data) {
 
     hoverDot
       .attr('cx', () => transform.applyX(x(d.data.Date)))
-      .attr('cy', () => transform.applyY(y(d.data.Composite_Benchmark)));
+      .attr('cy', () => transform.applyY(y(d.data[section])));
   }
 
   function voronoiMouseout(d) {
@@ -516,9 +530,9 @@ function draw(data) {
     linesContainer.selectAll('path')
       .attr('d', regionId => {
         return d3.line()
-          .defined(d => d.Composite_Benchmark !== 0)
+          .defined(d => d[section] !== 0)
           .x(d => rescaledX(d.Date))
-          .y(d => rescaledY(d.Composite_Benchmark))(regions[regionId].data);
+          .y(d => rescaledY(d[section]))(regions[regionId].data);
       });
 
     voronoiGroup
