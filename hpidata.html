@@ -35,8 +35,6 @@ crossorigin="anonymous"></script>
     <div class="w3-bar w3-theme-d2 w3-left-align">
      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
      <a href="main.html" class="w3-bar-item w3-button w3-gray"><i class="fa fa-home w3-margin-right"></i>Home</a>
-     <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Project Team</a>
-     <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Our Work</a>
        <div class="w3-dropdown-hover w3-hide-small">
        <button class="w3-button" title="Notifications">Analysis Dropdown <i class="fa fa-caret-down"></i></button>     
        <div class="w3-dropdown-content w3-card-4 w3-bar-block">
@@ -48,10 +46,7 @@ crossorigin="anonymous"></script>
     </div>
      <!-- Navbar on small screens -->
      <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-        <a href="main.html" class="w3-bar-item w3-button w3-gray"><i class="fa fa-home w3-margin-right"></i>Home</a>
-        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Project Team</a>
-        <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Our Work</a>
-        <a href="#visuals" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Visualizations</a>
+        <a href="main.html" class="w3-bar-item w3-button w3-gray"><i class="fa fa-home w3-margin-right"></i>Home</a>  
      </div>
    </div>
 
@@ -67,8 +62,13 @@ crossorigin="anonymous"></script>
             <div class="w3-container w3-padding-100 w3-center">
                 <div class="row">
                 <div class="col-xs-12 col-md-12">
+                  <br></br>
                   <h1>Housing Price Index Data</h1>
                   <h2>From the Canadian Real Estate Association</h2>
+                  <div class="row"><br></br>
+                  <h3>Select datasets from the drop down below to explore Canadian HPI data.</h3>
+                  <h3>Use the legend and preview section to interact with the information.</h3>
+                  <h3>Don't forget to check out our Voroni diagram!</h3>
                   <div class="row"><br></br>
                   </div>
                 </div>
@@ -85,52 +85,27 @@ crossorigin="anonymous"></script>
                     </div>
                   </div>
                 </div>
-                <!--<div class="w3-container w3-right">
-                <div class="title">
+                <div class="row"><br></br>
                 </div>
-                </div>
-                  <div class="preview"></div>
+              <div class="w3-right">
+               <!-- <div class="title">
+                </div>-->
+                  <div class="preview"><br></br></div>
               </div>
+              <div class="w3-center">
               <div class="actions">
                 <label id="form" for="show-voronoi">Show Voronoi diagram
                   <input type="checkbox" id="show-voronoi" disabled>
                 </label>
                 <button class="reset-zoom-button">Reset zoom</button>
               </div>
+              </div>
+              <div class="w3-center">
               <div class="root">
                 <div class="chart"></div>
                 <div class="legend"></div>
               </div>
-          </div>-->
-          <div class="w3-container w3-center">
-              <div class="title"></div>
-                <div class="preview"></div>
-            <div class="actions"></div>
-            <div class="row"><br></br>
-              <label class="w3-left" id="form" for="show-voronoi">Show Voronoi diagram
-                <input type="checkbox" id="show-voronoi" disabled>
-              </label>
-              <div class="row"><br></br>
-              <button class="reset-zoom-button w3-left">Reset zoom</button>
-                </div>
-            <div class="w3-container w3-center">
-            <div class="root"></div>
-              <div class="chart"></div>
-              <div class="legend"></div>
             </div>
-        </div>
-      
-            <div class="w3-container w3-center">
-                <div class="article">
-                  <br>
-                  <h2>Describe the chart</h2>
-                  <p><br>Line 1<br></p>
-        
-                  <p><br>Line 2<br></p>
-        
-                  <p><br>Line 3<br></p>
-                </div>
-              </div>
 
 <!-- Image of location/map -->
 <img src="/images/MountainPano.jpg" alt='MountainPano' class="w3-image w3-greyscale-min" style="width:100%;">
