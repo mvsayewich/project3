@@ -1,7 +1,7 @@
 
 var sect = document.getElementById("inds");
 var section = sect.options[sect.selectedIndex].value;
-d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset2.csv').then(data => draw(data, section))
+d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/db/mergeddataset2.csv').then(data => draw(data, section))
 
 d3.select('#inds')
 .on("change", function () {
@@ -9,7 +9,7 @@ d3.select('#inds')
   d3.selectAll("svg").remove();
   var sect = document.getElementById("inds");
   var section = sect.options[sect.selectedIndex].value;
-  d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/datasets/mergeddataset2.csv').then(data => draw(data, section))
+  d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/db/mergeddataset2.csv').then(data => draw(data, section))
 })
 
 const ENABLED_OPACITY = 1;
@@ -118,7 +118,7 @@ function draw(data, section) {
     .ticks(5)
     .tickSize(7 + width)
     .tickPadding(-11 - width)
-    .tickFormat(d => d);
+    .tickFormat(d => d.toLocaleString(undefined, {maximumFractionDigits:0}));
 
   const xAxisElement = svg.append('g')
     .attr('class', 'axis x-axis')
@@ -128,6 +128,7 @@ function draw(data, section) {
   const yAxisElement = svg.append('g')
     .attr('transform', 'translate(-7, 0)')
     .attr('class', 'axis y-axis')
+    .style('font-size', 8)
     .call(yAxis);
 
   svg.append('g')
