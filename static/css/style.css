@@ -55,3 +55,18 @@ article {
   margin: 0;
   font-size: 16px;
 }
+
+/* Style buttons */
+.btn {
+  background-color: gray;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: darkgray;
+}
