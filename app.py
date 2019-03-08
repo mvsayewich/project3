@@ -28,6 +28,17 @@ def city_list():
         city_name=list(set(city_name))
     return jsonify(city_name)
 
+@app.route("/hpidata")
+def hpi_data():
+    return render_template("hpidata.html")
+
+@app.route("/geodata")
+def geo_data():
+    return render_template("geodata.html")
+
+@app.route("/ontdata")
+def ont_data():
+    return render_template("ontdata.html")
 
 @app.route("/metadata/<city>")
 def city_house(city):
