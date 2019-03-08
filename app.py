@@ -16,20 +16,24 @@ result=engine.execute("select* from Real_Estate").fetchall()
 
 app=Flask(__name__)
 
+@app.route("/templates/main.html")
 @app.route("/")
 def home_page():
     return render_template("main.html")
 
+@app.route("/templates/hpidata.html")
 @app.route("/hpidata.html")
 @app.route("/hpidata")
 def hpi_data():
     return render_template("hpidata.html")
 
+@app.route("/templates/geodata.html")
 @app.route("/geodata.html")
 @app.route("/geodata")
 def geo_data():
     return render_template("geodata.html")
 
+@app.route("/templates/ontdata.html")
 @app.route("/ontdata.html")
 @app.route("/ontdata")
 def ont_data():
