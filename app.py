@@ -19,7 +19,18 @@ app=Flask(__name__)
 @app.route("/")
 def home_page():
     return render_template("main.html")
-
+@app.route("/hpidata.html")
+@app.route("/hpidata")
+def hpi_data():
+    return render_template("hpidata.html")
+@app.route("/geodata.html")
+@app.route("/geodata")
+def geo_data():
+    return render_template("geodata.html")
+@app.route("/ontdata.html")
+@app.route("/ontdata")
+def ont_data():
+    return render_template("ontdata.html")
 @app.route("/city")
 def city_list():
     city_name=[]
