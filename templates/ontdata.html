@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>ONTARIO DATA</title>
+<title>ONTARIO DWELLINGS</title>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 crossorigin="anonymous"></script>
@@ -8,12 +8,18 @@ crossorigin="anonymous"></script>
 crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 crossorigin="anonymous"></script>
-<link rel="stylesheet" href="static/css/style.css">
-<link rel="stylesheet" href="static/css/d3Style.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/ONmapStyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+   integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+   integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+   crossorigin=""></script>
 <body id="myPage">
 
 <!-- Navbar -->
@@ -46,32 +52,33 @@ crossorigin="anonymous"></script>
             <div class="w3-container w3-padding-100 w3-center">
               <div class="row">
                 <div class="col-xs-12 col-md-12">
-                  <h1>Ontario Data</h1>
-                  <h2>Subtitle - must Fill</h2>
+                  <h1>Ontario Dwellings Data</h1>
+                  <h2>Click on the legend to explore key markets in Ontario by dwelling type.</h2>
+                  <br><br>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12  col-md-9">
-                  <div id="scatter">
-                    <div class="chart">
-                    </div>
+            </div>
+
+              <!-- The div where we will inject our map -->
+              <div id="map"></div>
+              
+              <br><br>
+              <!-- Our JS -->
+              <script type="text/javascript" src="/static/js/ONMap.js"></script>
+
+              <div class="w3-container w3-padding-100 w3-center">
+                <div class="row">
+                  <div class="col-xs-12 col-md-12">
+                    <h2>The marker clusters represent average benchmark prices for various housing types in Ontario. You can compare the average price of each dwelling to the composite for real-time data on which dwelling type is most profitable in these markets.<br> <br> The regions included in this analysis are Barrie and District, Greater Toronto Area, Guelph, Hamilton and Burlington, Niagara Region, Oakville and Milton, and Ottawa.<br> <br> The data represents housing prices from January 1st 2018 to January 31st 2019.</h2>
+                    <br><br>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-xs-12  col-md-9">
-                  <div class="article">
-                    <br>
-                    <h2>Analysis of Data</h2>
-                    <p><br>Line 1<br></p>
-          
-                    <p><br>Line 2<br></p>
-          
-                    <p><br>Line 3<br></p>
                   </div>
                 </div>
               </div>
-            </div>          
+            </div>
+        </div>        
 
 <!-- Image of location/map -->
 <img src="/static/img/MountainPano.jpg" class="w3-image w3-greyscale-min" style="width:100%;">
@@ -88,7 +95,7 @@ crossorigin="anonymous"></script>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-  <script type="text/javascript" src="static/js/HPI.js"></script>
+  <script type="text/javascript" src="/static/js/GeoMap.js"></script>
 </footer>
 
 <script>

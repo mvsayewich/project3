@@ -1,209 +1,111 @@
-// Function to determine marker size based on population
-function markerSize(house) {
-  return house/100;
-}
 
-// An array containing all of the information needed to create city and state markers
-var locations = [
-    {
-      coordinates: [44.3894, -79.6903],
-      city: {
-        name: "Barrie and District",
-        Composite:464400,
-        Single_Family: 474700,
-        One_Storey:459800,
-        Two_Storey: 487500,
-        Townhouse:297900,
-        Apartment:352300
-      }
-    },
-    {
-      coordinates: [44.0384, -79.2000],
-      city: {
-        name: "Greater Toronto Area",
-        Composite:761800,
-        Single_Family: 856000,
-        One_Storey:742900,
-        Two_Storey: 896300,
-        Townhouse:568900,
-        Apartment:506900
-      }
-    },
-    {
-        coordinates: [43.5448, -80.2482],
-        city: {
-          name: "Guelph",
-          Composite:522300,
-          Single_Family: 536800,
-          One_Storey:505600,
-          Two_Storey: 556100,
-          Townhouse:375400,
-          Apartment:334600
-  
-        }
-    },
-    {
-        coordinates: [43.2557, -79.8711],
-        city: {
-          name: "Hamilton-Burlington",
-          Composite:582300,
-          Single_Family: 620700,
-          One_Storey:560800,
-          Two_Storey: 656400,
-          Townhouse:457800,
-          Apartment:390200
-  
-        }
-    },
-    {
-        coordinates: [43.0896, -79.0849],
-        city: {
-          name: "Niagara Region",
-          Composite:391300,
-          Single_Family: 398500,
-          One_Storey:387600,
-          Two_Storey: 413200,
-          Townhouse:316400,
-          Apartment:277600
-        }
-    },
-    {
-        coordinates: [43.4675, -79.6877],
-        city: {
-          name: "Oakville-Milton",
-          Composite:962800,
-          Single_Family: 998900,
-          One_Storey:962900,
-          Two_Storey: 1006000,
-          Townhouse:629000,
-          Apartment:541900
-        }
-    },
-    {
-        coordinates: [45.4215, -75.6972],
-        city: {
-          name: "Ottawa",
-          Composite:396300,
-          Single_Family: 434700,
-          One_Storey:389700,
-          Two_Storey: 455400,
-          Townhouse:263600,
-          Apartment:287900
-        }
-    },
-  ];
-  
- // Define arrays to hold created city and state markers
-var AptMarkers = [];
-var TownhouseMarkers =[];
-var Two_StoreyMarkers =[];
-var One_StoreyMarkers =[];
-var Single_FamilyMarkers =[];
-var CompositeMarkers=[];
-
-for (var i = 0; i < locations.length; i++) {
-  // Setting the marker radius for the city by passing population into the markerSize function
-  AptMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "purple",
-      fillColor: "purple",
-      radius: markerSize(locations[i].city.Apartment*5)
-    })
-  );
-  TownhouseMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "yellow",
-      fillColor: "yellow",
-      radius: markerSize(locations[i].city.Townhouse*6)
-    })
-  );
-  Two_StoreyMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "red",
-      fillColor: "red",
-      radius: markerSize(locations[i].city.Two_Storey*8)
-    })
-  );
-
-  One_StoreyMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "blue",
-      fillColor: "blue",
-      radius: markerSize(locations[i].city.One_Storey*9)
-    })
-  );
-
-  Single_FamilyMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "orange",
-      fillColor: "orange",
-      radius: markerSize(locations[i].city.Single_Family*12)
-    })
-  );
-
-  CompositeMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "#f06bb4",
-      fillColor: "#f06bb4",
-      radius: markerSize(locations[i].city.Composite*15)
-    })
-  );
-
-  }
-
-// Define variables for our base layers
-var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_token=pk.eyJ1IjoicHVybmltYWNoYW5kZWwiLCJhIjoiY2pzMmY3djg2MjRpbDQ5bWxmbzJ0bjNvaCJ9.ocFJPfl7pMGeXxRaPj3esA", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 10000,
-  id: "mapbox.streets",
-  //accessToken: GEO_API_KEY
+// Create a map object
+var myMap = L.map("map", {
+  center: [37.09, -95.71],
+  zoom: 5
 });
 
-/// Create separate layer groups
-var Apartment = L.layerGroup(AptMarkers);
-var Townhouse =L.layerGroup(TownhouseMarkers);
-var Two_Storey =L.layerGroup(Two_StoreyMarkers);
-var One_Storey =L.layerGroup(One_StoreyMarkers);
-var Single_Family=L.layerGroup(Single_FamilyMarkers);
-var Composite =L.layerGroup(CompositeMarkers);
+// Add a tile layer
+L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_token=pk.eyJ1IjoidGlrb3o4NiIsImEiOiJjanMyZjhidmQyNGVvNDNucm1wbXI5d2FrIn0._W0mEArHKzmv0DxqqOEflA", {
+  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+  maxZoom: 18,
+  id: "mapbox.streets",
+  //accessToken: API_KEY
+}).addTo(myMap);
 
-// Create a baseMaps object
-var baseMaps = {
-    "Street Map": streetmap   
-  };
-  
-  // Create an overlay object
-  var overlayMaps = {
-    "Apartment": Apartment,
-    "Town House": Townhouse,
-    "Two Storey House": Two_Storey,
-    "One Storey House": One_Storey,
-    "Single Family House": Single_Family,
-    "Composite": Composite
-  };
-  
-// Define a map object
-var myMap = L.map("map", {
-    center: [45.4215, -75.6972],
-    zoom: 6,
-    layers: [streetmap, Composite, Single_Family, One_Storey, Two_Storey, Townhouse, Apartment]
-  });
-  
-  // Pass our map layers into our layer control
-  // Add the layer control to the map
-  L.control.layers(baseMaps, overlayMaps, {
-    collapsed: false
-  }).addTo(myMap);
-    
+//var mergedDF = d3.csv("/db/mergeddataset2.csv").then(function(data){
+   
+ // console.log(data);
+  //data.filter(function(row) {
+    //  return row['YYYYMMDD'] == '20190101'; })
+  //});
+
+//console.log(mergedDF);
+  // An array containing each city's name, location and the most recent price
+var cities = [{
+  location: [44.391049, -79.686561],
+  name: "Barrie",
+  price: "297,900"
+},
+{
+  location: [51.046117, -114.061580],
+  name: "Calgary",
+  price: "284,300"
+},
+{
+  location: [53.566622, -113.484256],
+  name: "Edmonton",
+  price: "213,100"
+},
+{
+  location: [49.171320, -121.953047],
+  name: "Fraser Valley",
+  price: "522,100"
+},
+{
+  location: [46.094629, -64.774260],
+  name: "Moncton",
+  price: "145,600"
+},
+{
+  location: [45.509167, -73.554354],
+  name: "Montreal",
+  price: "425,000"
+},{
+  location: [43.653673, -79.384058],
+  name: "Toronto",
+  price: "568,900"
+},{
+  location: [49.264816, -123.113602],
+  name: "Vancouver",
+  price: "800,600"
+},{
+  location: [43.543536, -80.248445],
+  name: "Guelph",
+  price: "375,400"
+},{
+  location: [43.255640, -79.873157],
+  name: "Hamilton-Burlington",
+  price: "457,800"
+},{
+  location: [49.212655, -123.142828],
+  name: "Lower Mainland",
+  price: "675,700"
+},{
+  location: [43.040254, -79.260213],
+  name: "Niagara Region",
+  price: "316,400"
+},{
+  location: [43.491452, -79.749416],
+  name: "Oakville-Milton",
+  price: "629,000"
+},{
+  location: [45.401274, -75.705632],
+  name: "Ottawa",
+  price: "263,600"
+},{
+  location: [50.447118, -104.617468],
+  name: "Regina",
+  price: "230,100"
+},{
+  location: [52.130910, -106.656897],
+  name: "Saskatoon",
+  price: "217,200"
+},{
+  location: [49.685952, -124.999710],
+  name: "Vancouver Island",
+  price: "407,600"
+},{
+  location: [48.432150, -123.365743],
+  name: "Victoria",
+  price: "587,500"
+}
+];
+
+// Loop through the cities array and create one marker for each city, bind a popup containing its name and population add it to the map
+for (var i = 0; i < cities.length; i++) {
+  var city = cities[i];
+  L.marker(city.location)
+    .bindPopup("<h1>" + city.name + "</h1> <hr> <p>Price " + city.price "</p>")
+    .addTo(myMap);
+};
