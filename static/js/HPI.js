@@ -1,7 +1,7 @@
 
 var sect = document.getElementById("inds");
 var section = sect.options[sect.selectedIndex].value;
-d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/db/mergeddataset2.csv').then(data => draw(data, section))
+d3.json("/metadata").then(data => draw(data, section))
 
 d3.select('#inds')
 .on("change", function () {
@@ -9,7 +9,7 @@ d3.select('#inds')
   d3.selectAll("svg").remove();
   var sect = document.getElementById("inds");
   var section = sect.options[sect.selectedIndex].value;
-  d3.csv('https://raw.githubusercontent.com/mvsayewich/project3/master/db/mergeddataset2.csv').then(data => draw(data, section))
+  d3.json("/metadata").then(data => draw(data, section))
 })
 
 const ENABLED_OPACITY = 1;
