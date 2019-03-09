@@ -1,8 +1,8 @@
 
 // Create a map object
 var myMap = L.map("map", {
-  center: [37.09, -95.71],
-  zoom: 5
+  center: [45.00, -93.26],
+  zoom: 4
 });
 
 // Add a tile layer
@@ -25,80 +25,80 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_to
 var cities = [{
   location: [44.391049, -79.686561],
   name: "Barrie",
-  price: "297,900"
+  price: "475,592"
 },
 {
   location: [51.046117, -114.061580],
   name: "Calgary",
-  price: "284,300"
+  price: "425,053"
 },
 {
   location: [53.566622, -113.484256],
   name: "Edmonton",
-  price: "213,100"
+  price: "328,253"
 },
 {
   location: [49.171320, -121.953047],
   name: "Fraser Valley",
-  price: "522,100"
+  price: "857,546"
 },
 {
   location: [46.094629, -64.774260],
   name: "Moncton",
-  price: "145,600"
+  price: "180,178"
 },
 {
   location: [45.509167, -73.554354],
   name: "Montreal",
-  price: "425,000"
+  price: "342,038"
 },{
   location: [43.653673, -79.384058],
   name: "Toronto",
-  price: "568,900"
+  price: "762,346"
 },{
   location: [49.264816, -123.113602],
   name: "Vancouver",
-  price: "800,600"
+  price: "1,074,307"
 },{
   location: [43.543536, -80.248445],
   name: "Guelph",
-  price: "375,400"
+  price: "514,861"
 },{
   location: [43.255640, -79.873157],
   name: "Hamilton-Burlington",
-  price: "457,800"
+  price: "575,223"
 },{
   location: [49.212655, -123.142828],
   name: "Lower Mainland",
-  price: "675,700"
+  price: "1,004,538"
 },{
   location: [43.040254, -79.260213],
   name: "Niagara Region",
-  price: "316,400"
+  price: "384,707"
 },{
   location: [43.491452, -79.749416],
   name: "Oakville-Milton",
-  price: "629,000"
+  price: "951,307"
 },{
   location: [45.401274, -75.705632],
   name: "Ottawa",
-  price: "263,600"
+  price: "386,830"
 },{
   location: [50.447118, -104.617468],
   name: "Regina",
-  price: "230,100"
+  price: "275,046"
 },{
   location: [52.130910, -106.656897],
   name: "Saskatoon",
-  price: "217,200"
+  price: "292,615"
 },{
   location: [49.685952, -124.999710],
   name: "Vancouver Island",
-  price: "407,600"
+  price: "474,723"
 },{
   location: [48.432150, -123.365743],
   name: "Victoria",
-  price: "587,500"
+  price: "683,946"
 }
 ];
 
@@ -106,6 +106,6 @@ var cities = [{
 for (var i = 0; i < cities.length; i++) {
   var city = cities[i];
   L.marker(city.location)
-    .bindPopup("<h1>" + city.name + "</h1> <hr> <p>Price " + city.price "</p>")
+  .bindPopup("<h1>" + city.name + "</h1>" + "<h2> Average Price of a dwelling: <br>$" + city.price + "</h2>")
     .addTo(myMap);
 };
