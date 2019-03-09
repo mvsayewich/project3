@@ -20,7 +20,7 @@ var locations = [
     {
       coordinates: [44.0384, -79.2000],
       city: {
-        name: "Greater Toronoto Area",
+        name: "Greater Toronto Area",
         Composite:761800,
         Single_Family: 856000,
         One_Storey:742900,
@@ -45,7 +45,7 @@ var locations = [
     {
         coordinates: [43.2557, -79.8711],
         city: {
-          name: "Hamilton_Burlington",
+          name: "Hamilton-Burlington",
           Composite:582300,
           Single_Family: 620700,
           One_Storey:560800,
@@ -70,7 +70,7 @@ var locations = [
     {
         coordinates: [43.4675, -79.6877],
         city: {
-          name: "Oakville_Milton",
+          name: "Oakville-Milton",
           Composite:962800,
           Single_Family: 998900,
           One_Storey:962900,
