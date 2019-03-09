@@ -1,7 +1,8 @@
 // Function to determine marker size based on population
 function markerSize(house) {
-  return house/20;
+  return house/100;
 }
+
 // An array containing all of the information needed to create city and state markers
 var locations = [
     {
@@ -161,6 +162,7 @@ for (var i = 0; i < locations.length; i++) {
   );
 
   }
+
 // Define variables for our base layers
 var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_token=pk.eyJ1IjoicHVybmltYWNoYW5kZWwiLCJhIjoiY2pzMmY3djg2MjRpbDQ5bWxmbzJ0bjNvaCJ9.ocFJPfl7pMGeXxRaPj3esA", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
