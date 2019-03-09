@@ -93,51 +93,110 @@ var locations = [
   ];
   
  // Define arrays to hold created city and state markers
-var cityMarkers = [];
+var AptMarkers = [];
+var TownhouseMarkers =[];
+var Two_StoreyMarkers =[];
+var One_StoreyMarkers =[];
+var Single_FamilyMarkers =[];
+var CompositeMarkers=[];
+
 for (var i = 0; i < locations.length; i++) {
   // Setting the marker radius for the city by passing population into the markerSize function
-  cityMarkers.push(
+  AptMarkers.push(
     L.circle(locations[i].coordinates, {
       stroke: false,
       fillOpacity: 0.75,
       color: "purple",
       fillColor: "purple",
-      radius: markerSize(locations[i].city.Apartment)
+      radius: markerSize(locations[i].city.Apartment*5)
     })
   );
-}
+  TownhouseMarkers.push(
+    L.circle(locations[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "yellow",
+      fillColor: "yellow",
+      radius: markerSize(locations[i].city.Townhouse*6)
+    })
+  );
+  Two_StoreyMarkers.push(
+    L.circle(locations[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "red",
+      fillColor: "red",
+      radius: markerSize(locations[i].city.Two_Storey*8)
+    })
+  );
+
+  One_StoreyMarkers.push(
+    L.circle(locations[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "blue",
+      fillColor: "blue",
+      radius: markerSize(locations[i].city.One_Storey*9)
+    })
+  );
+
+  Single_FamilyMarkers.push(
+    L.circle(locations[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "orange",
+      fillColor: "orange",
+      radius: markerSize(locations[i].city.Single_Family*12)
+    })
+  );
+
+  CompositeMarkers.push(
+    L.circle(locations[i].coordinates, {
+      stroke: false,
+      fillOpacity: 0.75,
+      color: "#f06bb4",
+      fillColor: "#f06bb4",
+      radius: markerSize(locations[i].city.Composite*15)
+    })
+  );
+
+  }
 // Define variables for our base layers
 var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_token=pk.eyJ1IjoicHVybmltYWNoYW5kZWwiLCJhIjoiY2pzMmY3djg2MjRpbDQ5bWxmbzJ0bjNvaCJ9.ocFJPfl7pMGeXxRaPj3esA", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
+  maxZoom: 10000,
   id: "mapbox.streets",
   //accessToken: GEO_API_KEY
 });
-var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?" + "access_token=pk.eyJ1IjoicHVybmltYWNoYW5kZWwiLCJhIjoiY2pzMmY3djg2MjRpbDQ5bWxmbzJ0bjNvaCJ9.ocFJPfl7pMGeXxRaPj3esA", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.dark",
-  //accessToken: GEO_API_KEY
-});
-// Create separate layer groups
-var cities = L.layerGroup(cityMarkers);
+
+/// Create separate layer groups
+var Apartment = L.layerGroup(AptMarkers);
+var Townhouse =L.layerGroup(TownhouseMarkers);
+var Two_Storey =L.layerGroup(Two_StoreyMarkers);
+var One_Storey =L.layerGroup(One_StoreyMarkers);
+var Single_Family=L.layerGroup(Single_FamilyMarkers);
+var Composite =L.layerGroup(CompositeMarkers);
+
 // Create a baseMaps object
 var baseMaps = {
-    "Street Map": streetmap,
-    "Dark Map": darkmap
+    "Street Map": streetmap   
   };
   
   // Create an overlay object
   var overlayMaps = {
-    "City House Price": cities
-    
+    "Apartment": Apartment,
+    "Town House": Townhouse,
+    "Two Storey House": Two_Storey,
+    "One Storey House": One_Storey,
+    "Single Family House": Single_Family,
+    "Composite": Composite
   };
   
 // Define a map object
 var myMap = L.map("map", {
     center: [45.4215, -75.6972],
-    zoom: 5,
-    layers: [streetmap, cities]
+    zoom: 6,
+    layers: [streetmap, Composite, Single_Family, One_Storey, Two_Storey, Townhouse, Apartment]
   });
   
   // Pass our map layers into our layer control
@@ -145,3 +204,4 @@ var myMap = L.map("map", {
   L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
   }).addTo(myMap);
+    
