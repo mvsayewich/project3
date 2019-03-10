@@ -7,7 +7,7 @@ from sqlalchemy import create_engine
 from collections import defaultdict
 
 #create an engine and create the reference for table in output.sqlite through ORM
-engine=create_engine("postgresql://postgres:123456@localhost/project3")
+engine=create_engine("postgres://mjcfycycuflovs:6921e9b498358232d304290ebe8296b4f4c81c9bb77dd802a4bbee192c55c572@ec2-54-243-128-95.compute-1.amazonaws.com:5432/dd07ud23cca0r6")
 con=engine.connect()
 result=engine.execute("select* from realestate").fetchall()
 
