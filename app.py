@@ -1,15 +1,15 @@
 #import modules
-#import modules
 from flask import Flask, render_template,jsonify
-#from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 from collections import defaultdict
 
 #create an engine and create the reference for table in output.sqlite through ORM
-engine=create_engine("sqlite:///db/output.db")
-result=engine.execute("select* from Real_Estate").fetchall()
+engine=create_engine("postgresql://postgres:123456@localhost/project3")
+con=engine.connect()
+result=engine.execute("select* from realestate").fetchall()
 
 app=Flask(__name__)
 
@@ -64,22 +64,6 @@ def city_house(city):
 def all_city_info():
     city_info=[]
     for i in result:
-        #city_info.append([])
-        #city_info[-1].append({"regionId":i.Region,"Date":i.Date})
-        #city_info[-1].append({"Date":i.Date})
-        #city_info[-1].append({"Composite_Benchmark":i.Composite_Benchmark})
-        #city_info[-1].append({"Single_Family_Benchmark":i.Single_Family_Benchmark})
-        #city_info[-1].append({"Two_Storey_Benchmark":i.Two_Storey_Benchmark})
-        #city_info[-1].append({"Townhouse_Benchmark":i.Townhouse_Benchmark})
-        #city_info[-1].append({"Apartment_Benchmark":i.Apartment_Benchmark})
-        #metadata_allcity["regionId"].append(i.Region)
-        #metadata_allcity["Date"].append(i.Date)
-        #metadata_allcity["Composite_Benchmark"].append(i.Composite_Benchmark)
-        #metadata_allcity["Single_Family_Benchmark"].append(i.Single_Family_Benchmark)
-        #metadata_allcity["One_Storey_Benchmark"].append(i.One_Storey_Benchmark)
-        #metadata_allcity["Two_Storey_Benchmark"].append(i.Two_Storey_Benchmark)
-        #metadata_allcity["Townhouse_Benchmark"].append(i.Townhouse_Benchmark)
-        #metadata_allcity["Apartment_Benchmark"].append(i.Apartment_Benchmark)
         metadata_allcity=defaultdict(list)
         metadata_allcity["regionId"]=i.Region
         metadata_allcity["Date"]=i.Date
